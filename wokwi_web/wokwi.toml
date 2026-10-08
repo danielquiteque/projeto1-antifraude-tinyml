@@ -1,0 +1,6 @@
+# Simulação no VS Code (extensão Wokwi) com o firmware já compilado — não precisa de ESP-IDF.
+# Abra ESTA pasta no VS Code e rode  F1 → "Wokwi: Start Simulator".
+# Para o fluxo com build próprio (idf.py build), use firmware/wokwi.toml.
+[wokwi]
+version = 1
+firmware = 'firmware.bin'
