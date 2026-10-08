@@ -103,5 +103,5 @@ bash tests/run_parity.sh     # esperado: [antifraude] saídas int8 idênticas: 1
 
 ## Decisões e limitações
 * **Divisão por cartão** (clientes do teste nunca vistos). A divisão temporal caiu para PR-AUC 0,17 por *drift* do simulador entre 2019 e 2020. Em produção, isso exigiria monitoramento e re-treino.
-* **Dados sintéticos:** dados reais de cartão por transação não são públicos (LGPD/PCI). O único dataset real público (ULB) traz variáveis anonimizadas por PCA, que nenhum terminal consegue calcular.
+* Dados reais de cartão por transação não são públicos (LGPD/PCI). O único dataset real público (ULB) traz variáveis anonimizadas por PCA, que nenhum terminal consegue calcular.
 * **TFLite × TFLM:** os kernels de referência do TFLM arredondam um pouco diferente. Por isso, a simulação final do notebook usa o próprio runtime TFLM.
