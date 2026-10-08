@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "author": "Daniel Quiteque",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-devkitc-1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -150,
+      "left": -20,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc",
+      "top": -140,
+      "left": 150,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad",
+      "top": -30,
+      "left": -330,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_ok",
+      "top": 40,
+      "left": 190,
+      "attrs": {
+        "color": "green",
+        "label": "APROVADA"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_fraud",
+      "top": 40,
+      "left": 250,
+      "attrs": {
+        "color": "red",
+        "label": "BLOQUEADA"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 120,
+      "left": 180,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 120,
+      "left": 240,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz",
+      "top": 160,
+      "left": 300,
+      "attrs": {
+        "volume": "0.2"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "oled:SDA",
+      "esp:8",
+      "green",
+      []
+    ],
+    [
+      "oled:SCL",
+      "esp:9",
+      "blue",
+      []
+    ],
+    [
+      "oled:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "rtc:SDA",
+      "esp:8",
+      "green",
+      []
+    ],
+    [
+      "rtc:SCL",
+      "esp:9",
+      "blue",
+      []
+    ],
+    [
+      "rtc:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "oled:VCC",
+      "esp:3V3.1",
+      "red",
+      []
+    ],
+    [
+      "rtc:5V",
+      "esp:3V3.1",
+      "red",
+      []
+    ],
+    [
+      "keypad:R1",
+      "esp:4",
+      "orange",
+      []
+    ],
+    [
+      "keypad:R2",
+      "esp:5",
+      "orange",
+      []
+    ],
+    [
+      "keypad:R3",
+      "esp:6",
+      "orange",
+      []
+    ],
+    [
+      "keypad:R4",
+      "esp:7",
+      "orange",
+      []
+    ],
+    [
+      "keypad:C1",
+      "esp:15",
+      "purple",
+      []
+    ],
+    [
+      "keypad:C2",
+      "esp:16",
+      "purple",
+      []
+    ],
+    [
+      "keypad:C3",
+      "esp:17",
+      "purple",
+      []
+    ],
+    [
+      "keypad:C4",
+      "esp:18",
+      "purple",
+      []
+    ],
+    [
+      "esp:10",
+      "r1:1",
+      "green",
+      []
+    ],
+    [
+      "r1:2",
+      "led_ok:A",
+      "green",
+      []
+    ],
+    [
+      "led_ok:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:11",
+      "r2:1",
+      "red",
+      []
+    ],
+    [
+      "r2:2",
+      "led_fraud:A",
+      "red",
+      []
+    ],
+    [
+      "led_fraud:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:12",
+      "bz:2",
+      "gold",
+      []
+    ],
+    [
+      "bz:1",
+      "esp:GND.1",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}

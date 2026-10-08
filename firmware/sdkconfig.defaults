@@ -1,0 +1,9 @@
+CONFIG_IDF_TARGET="esp32s3"
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+CONFIG_FREERTOS_HZ=1000
+# O Wokwi não simula as instruções SIMD usadas pelo ESP-NN (Aula 4).
+# Em esp-tflite-micro >= 1.4 basta esta opção; na 1.3.x use tools/desabilitar_esp_nn.py.
+CONFIG_ESP_TFLITE_MICRO_USE_ESP_NN=n

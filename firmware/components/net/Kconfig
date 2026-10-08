@@ -1,0 +1,29 @@
+menu "Rede (Wi-Fi + MQTT para o dashboard)"
+
+    config NET_ENABLE
+        bool "Habilitar Wi-Fi e MQTT"
+        default y
+        help
+            Desligue para rodar 100% offline. A inferência é sempre local.
+
+    config NET_WIFI_SSID
+        string "SSID"
+        default "Wokwi-GUEST"
+
+    config NET_WIFI_PASSWORD
+        string "Senha"
+        default ""
+
+    config NET_WIFI_CHANNEL
+        int "Canal (0 = varrer)"
+        default 6
+
+    config NET_MQTT_URI
+        string "Broker MQTT"
+        default "mqtt://broker.hivemq.com"
+
+    config NET_TOPIC_PREFIX
+        string "Prefixo dos tópicos (use algo único)"
+        default "ia-embarcada/daniel"
+
+endmenu
