@@ -1,0 +1,11 @@
+modelo,bytes,gzip,arena_tflm,pr_auc,roc_auc,precision,recall,f1,obs,vs_float32
+float32 (baseline),7156,5797,1696,0.8989,0.9979,0.602,0.8956,0.72,,1.0
+float16,5388,3694,não suportado,0.8989,0.9979,0.602,0.8956,0.72,TFLM não executa fp16,0.75
+dynamic range (pesos int8),7156,5798,1696,0.8989,0.9979,0.602,0.8956,0.72,híbrido: TFLM não executa,1.0
+PTQ int8 completo,4968,2845,1984,0.8942,0.9954,0.5974,0.9011,0.7185,entrada/saída int8,0.69
+QAT int8,4168,2398,1600,0.8986,0.9932,0.7902,0.851,0.8194,fine-tuning 4 épocas,0.58
+pruning 75% float32,7156,2811,1696,0.7456,0.9905,0.5898,0.7012,0.6407,,1.0
+pruning 75% + int8,4968,2133,1984,0.7394,0.9849,0.602,0.693,0.6443,,0.69
+clustering 16 + int8,4968,2043,1984,0.7762,0.9851,0.6488,0.7335,0.6886,,0.69
+aluno destilado (16-8) int8,3536,1810,1776,0.7838,0.9677,0.7547,0.6848,0.718,"KD T=3, α=0.5",0.49
+aluno sem professor (16-8) int8,3656,1843,1776,0.8066,0.991,0.6614,0.7823,0.7168,controle da KD,0.51
