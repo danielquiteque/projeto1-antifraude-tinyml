@@ -1,23 +1,6 @@
-# Roteiro da apresentação (10 min) e preparação para a arguição
+# Preparação para a arguição — perguntas prováveis
 
-> A apresentação tem até 10 min, seguidos de 5 min de perguntas individuais.
-
-## Roteiro (≈ 10 min)
-
-| tempo | slide / ação | mensagem-chave |
-|---|---|---|
-| 0:00–0:45 | Problema | Decidir **no terminal**: privacidade (LGPD), latência de ms e funcionamento sem rede |
-| 0:45–1:45 | Dados | Sparkov/Kaggle, 1,78 M transações, 0,53% fraude. EDA: fraude de madrugada, em rajadas, com valor acima do padrão |
-| 1:45–3:00 | Features **no dispositivo** | Só o que o ESP32 sabe: teclado + RTC + estado do cartão (Δt, EMA, janela 24 h). Nada de feature de backend |
-| 3:00–4:00 | Modelo e memória | MLP 22-32-16-1 = 1.281 parâmetros (conta à mão), ~5 KB float32 e ~1,3 KB de pesos int8. Arena **medida** no TFLM |
-| 4:00–5:30 | **Tabela de compressão** | fp16/dynamic não rodam no TFLM; PTQ −0,005 PR-AUC; **QAT recupera**; pruning/clustering só ganham no gzip; KD não ajudou (controle) |
-| 5:30–7:30 | **Demo no Wokwi** | Compra normal → APROVADA; `B` até 2h, `compras web`, $900 três vezes → BLOQUEADA + buzzer; depois `D` (replay) |
-| 7:30–9:00 | Dashboard MQTT | As mesmas decisões chegando ao painel; latência de inferência em µs |
-| 9:00–10:00 | Limitações e próximos passos | Drift (divisão temporal), dados sintéticos, threshold adaptativo, OTA de modelo (Greengrass, Aula 8) |
-
-**Dica de demo:** deixe o Wokwi já compilado e aberto. Se o Wi-Fi do simulador demorar, a inferência funciona offline (mostre o OLED e o monitor serial).
-
----
+> 5 min de perguntas individuais após a apresentação. O roteiro dos slides está em [roteiro_apresentacao.md](roteiro_apresentacao.md) e o da demonstração em [roteiro_demo.md](roteiro_demo.md).
 
 ## Perguntas prováveis — e como responder
 
