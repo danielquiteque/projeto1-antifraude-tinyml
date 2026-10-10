@@ -1,0 +1,27 @@
+COMO RODAR A SIMULAÇÃO SEM INSTALAR O ESP-IDF (firmware já compilado: firmware.bin)
+
+OPÇÃO A — VS Code + extensão Wokwi (recomendada para a apresentação)
+1. Abra ESTA pasta (wokwi_web) no VS Code:  code "caminho\para\wokwi_web"
+2. F1 → "Wokwi: Start Simulator". O wokwi.toml desta pasta aponta para firmware.bin
+   e o diagram.json monta o circuito. O play/restart roda SEMPRE este firmware.
+3. O monitor serial aparece no painel do VS Code (linhas TX,...).
+
+OPÇÃO B — Wokwi no navegador
+1. Entre em wokwi.com com sua conta e crie um projeto novo:
+   https://wokwi.com/projects/new/esp32-s3
+2. Abra a aba "diagram.json", apague tudo e cole o conteúdo de diagram.json.
+   O circuito aparece montado (ESP32-S3 + OLED + teclado 4x4 + RTC DS1307 + LEDs + buzzer).
+3. Clique no editor de código, aperte F1 e escolha
+   "Upload Firmware and Start Simulation..."
+   Selecione o firmware.bin desta pasta.
+4. ATENÇÃO: não use o botão verde (play/restart) — ele recompila o sketch.ino de exemplo
+   e descarta o firmware. Para reiniciar, repita o passo 3.
+
+Observações
+- O Wi-Fi (Wokwi-GUEST) e o MQTT demoram alguns segundos. Se não conectarem,
+  o OLED mostra "off" e a inferência continua normalmente (é 100% local).
+- Teclas: 0-9 valor, # paga, A categoria, B +1h no relógio, * apaga, C limpa, D replay.
+- Reiniciar a simulação zera o histórico do cartão de demonstração.
+- Se mudar o modelo (rodar o notebook de novo), recompile o firmware com idf.py build e gere um novo .bin:
+  esptool.py --chip esp32s3 merge_bin -o firmware.bin --flash_mode dio --flash_size 8MB @flash_args
+  (rodar dentro de firmware/build) e copie o resultado para wokwi_web/firmware.bin.

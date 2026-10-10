@@ -1,0 +1,5 @@
+dependencies:
+  idf: ">=5.2"
+  # Mesmo componente usado na Aula 4. Para o Wokwi, o ESP-NN precisa ficar DESLIGADO
+  # (ver sdkconfig.defaults e tools/desabilitar_esp_nn.py na raiz do repositório).
+  espressif/esp-tflite-micro: "^1.3.5"
